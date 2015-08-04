@@ -16,6 +16,7 @@
     "react-tap-event-plugin": "^0.1.7"
   },
   "devDependencies": {
+    "babelify": "^6.1.3",
     "browserify": "^10.2.4",
     "envify": "^3.4.0",
     "jest-cli": "^0.4.15",
@@ -24,8 +25,8 @@
     "watchify": "^3.2.3"
   },
   "scripts": {
-    "start": "watchify -o www/js/bundle.js -v -d www/js/app.js",
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > www/js/bundle.min.js",
+    "start": "watchify -o www/js/bundle.js -v -t babelify -d www/js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] -t babelify | uglifyjs -cm > www/js/bundle.min.js",
     "test": "jest"
   },
   "browserify": {
