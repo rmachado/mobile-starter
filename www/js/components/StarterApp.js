@@ -2,6 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 
+var SplashScreen = require('./SplashScreen');
 var ThemeManager = require('material-ui/lib/styles/theme-manager')();
 var Colors = require('material-ui/lib/styles/colors');
 
@@ -26,9 +27,12 @@ var StarterApp = React.createClass({
     },
 
     render: function() {
-      return (
-        <RouteHandler/>
-      );
+        return (
+          <SplashScreen delay={5000}>
+            <RouteHandler/>
+          </SplashScreen>
+        );
+
     }
 });
 
